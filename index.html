@@ -6,11 +6,10 @@
 	</head>
 
 	<body>
-		<div ng-app='TagAlong' ng-controller='DataController' ng-cloak>
-			<md-content layout='padding'>
-			<md-grid-list md-cols-sm="12" md-cols-md="12" md-cols-gt-md="12" md-row-height-gt-md="4:3" md-row-height="4:3" md-gutter="10px" md-gutter-gt-sm="10px" flex>
-			 <md-grid-tile ng-repeat='event in concertData' ng-hide='{{event.ticket_status === "unavailable"}}' md-colspan="4" md-colspan-sm="4" md-colspan-md="4" md-colspan-gt-md="4">
-				<md-card>
+		<div ng-app='TagAlong'>
+		<div ng-controller='DataController' ng-cloak>
+			<md-content layout-align="center" layout-padding layout-margin layout-fill style="min-height: 224px;" layout='row' layout-wrap>
+				<md-card ng-repeat='event in concertData' ng-hide='{{event.ticket_status === "unavailable"}}' flex='30'>
 					<md-card-actions>
 						<md-button ng-href='{{event.venue.url}}' class='md-primary'>{{event.venue.name | uppercase}}</md-button>
 						<div ng-repeat='artist in event.artists'>
@@ -19,9 +18,9 @@
 						<p class='date'>{{event.datetime | date:'MM/dd/yyyy @  h:mma'}}</p>
 						<md-button ng-href='{{event.ticket_url}}'>Buy Tickets</md-button>
 					</md-card-actions>
-			</md-grid-tile>
-			</md-grid-list>
+				</md-card>	
 			</md-content>
+		</div>	
 		</div>
 
 
